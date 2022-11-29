@@ -1,0 +1,39 @@
+1) Push method
+var output = [];
+output.push(1);
+// [1]
+
+output.push(2);
+//[1,2]
+
+Where are items pushed? last/At the end
+
+2) pop method
+output.pop
+//removes item
+Where are items removed from? last/at the end
+
+3) Make function that whenever called adds no. to array and prints
+
+
+
+var output = [];
+var count = 1;
+function fizzBuzz() {
+ 		
+	if(count % 3 == 0){
+		output.push("Fizz")	;
+	} 
+	elseif(count % 5 ==0){
+		output.push("Buzz");	
+}
+	else {
+	output.push(count);
+}
+		count++;
+		console.log(output);
+
+
+//What if a number is divisible by both 5 and 3, this code will run top to down and only 
+check for 3 no 5
+so add another if (count %5 == 0 && count% 3 == 0)

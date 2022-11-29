@@ -1,0 +1,52 @@
+1) How to write without loop
+//using recursion		//TC O(2^n)	
+			//Can avoid heavy push pop using memoization
+
+ let n = 9;
+     
+    // function returns the Fibonacci number
+    function fib(n) {
+    if (n <= 1)
+        return n;
+    return fib(n-1) + fib(n-2);
+}
+  
+    //function call
+    document.write(fib(n))
+____________________________________________________
+//without recursion		//TC O(n)
+function fib(n) {
+ 
+  int a = 0; int b=1; int sum = 0;
+
+
+for(int i = 1; i < n ; i++) {
+
+	a = b;
+	b = sum
+	sum = a+b;
+	
+}
+return sum;
+}
+___________________________________________________
+//Using Loops
+var output = [];
+if(n==1)  {
+   output=  [0];
+}
+elseif(n==2) {
+   output = [0,1];
+}
+else {
+   output = [0,1];
+  for(var i =2; i< n; i++) {
+	output.push(output[output.length -2]+ output[output.length - 1]);	//  for n=3: output[2] + output[1];
+								//for   n=4: output[3]+ output[2];
+}
+}
+return output;
+}
+
+output = fibonacciGenerator(1);
+console.log(output)

@@ -1,0 +1,10 @@
+functiontest() {
+ 	var a= '3';
+	var b= '8';
+}
+//Write your code here
+
+
+//
+console.log("a is" +a);
+console.log("b is " + b);	

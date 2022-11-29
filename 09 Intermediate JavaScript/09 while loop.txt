@@ -1,0 +1,8 @@
+1) While loop
+//Error prone loop, runs inifinitely until statement becomes false
+	a) Condition check
+	b) execute code in bracket if true else skip
+
+while(something is true) {
+	code inside will run again and again till something is no longer true
+}

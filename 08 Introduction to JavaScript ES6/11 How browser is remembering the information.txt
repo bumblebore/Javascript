@@ -1,0 +1,38 @@
+We store string in a variable using JS
+browser stores this var
+We can print this later
+
+This is how our info is saved on browser
+
+
+Ex 
+HTML
+<button id="button_A">Press me</button>
+<h3 id="heading_A"></h3>
+JS	
+const buttonA = document.querySelector('#button_A');			returs first found selector from document
+const headingA = document.querySelector('#heading_A');
+
+buttonA.onclick = () => {
+  const name = prompt('What is your name?');
+  alert(`Hello ${name}, nice to see you!`);
+  headingA.textContent = `Welcome ${name}`;
+}
+Copy to Clipboard
+
+
+
+Q) Why variables are important? if didnt we use them	//have to get input every time we dont use it
+
+<button id="button_B">Press me</button>
+<h3 id="heading_B"></h3>
+
+
+
+const buttonB = document.querySelector('#button_B');
+const headingB = document.querySelector('#heading_B');
+
+buttonB.onclick = () => {
+    alert(`Hello ${prompt('What is your name?')}, nice to see you!`);
+    headingB.textContent = `Welcome ${prompt('What is your name?')}`;
+}

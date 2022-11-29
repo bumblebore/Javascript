@@ -1,0 +1,11 @@
+No. of character in string?
+Use length property
+
+word.length
+
+Ex1) tell users how many characters written, how mmany remaining
+
+var tweet = prompt ("Compose your tweet");
+var TweetCount = tweet.length;
+
+alert("You have written" + tweetCount + "Characters left are" (140 - tweetCount) + )

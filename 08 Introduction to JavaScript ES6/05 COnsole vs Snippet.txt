@@ -1,0 +1,16 @@
+Console helps testing lines of code
+
+
+Snippet helps testing multiline code
+
+
+How to clear console?
+Ctrl + K
+
+
+How to delete all data from browser after use?
+Right click reload-> Empty cache hard reload
+
+
+console.log("xyz");
+//only meant for developer not user

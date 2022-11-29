@@ -1,0 +1,19 @@
+We made a block of code little dynamic to user input by taking input parameter into function.
+
+How oto execute different code differently dynamically
+
+How to respond differently to any score?
+
+Conditionals : Controlling the flow depending on current conditions
+
+//Testing condition
+if (track === "clear") {goStraight();}        //if condition is true
+else {turnRight();}		  	  //if condition is not true
+
+Comparitives for Conditional :
+=== Is equal to
+!== Is not equal to 
+< Is greater than
+< Is lesser than
+>= Is greater or equal to
+<= Is lesser or equal to

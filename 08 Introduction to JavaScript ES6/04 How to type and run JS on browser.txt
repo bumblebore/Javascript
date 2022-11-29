@@ -1,0 +1,21 @@
+1) Chrome -> Developer -> JS Console
+
+alert ("Hello");
+
+Hit enter -> Pops up message
+
+
+Problem with console?
+
+alert ("Hello");
+alert("World!");		//Doesnt execute multiline instruction
+			unless you  hit shift and enter
+Pops up hello
+pops up world
+
+2) Near COnsole tab -> Sources ->Arrow -> Snippets -> new Snippet -> XYZ.js
+
+alert ("Hello");
+alert("World!");	
+
+//Write any code -> run snippet

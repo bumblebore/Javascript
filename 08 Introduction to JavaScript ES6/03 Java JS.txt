@@ -1,0 +1,31 @@
+
+Earlier LiveScript -> JScript ->JavaScript
+Different versions were running together
+Europeans standardized
+	ECMA Script (European Computer Manufacturer)
+	ES = EcmaScript
+
+
+What do scripts do?
+	Telling elements what to do with logic
+
+
+What do Java and JS have in common?
+Nothing ->Hot Keyword
+
+
+Difference bw Java and JS?
+JS : interpretive programming lang
+Java : Compile programming lang.
+
+
+Interpreted		Compiled
+Javascript		Java
+Python			C/C++
+Ruby			Swift
+
+
+Which browser support JS?
+All major 
+
+	

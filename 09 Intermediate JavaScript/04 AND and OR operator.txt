@@ -1,0 +1,19 @@
+AND : check for 2 conditions are true or not
+
+ex  //check code may contain syntax mistakes
+function bmiCalculator (weight, height) {
+var bmi = weight/(height^2);
+if (bmi < 18.5){
+   var interpretation = "Your BMI is "+ bmi + "so you are underweight";
+
+}
+else if(bmi> 18.5 && bmi< 24.9) {
+ var interpretation = "your BMI is" + bmi + "so you have normal weight";
+
+}
+else {
+var interpretation = "your BMI is" + bmi + "so you are overweight";
+
+}
+    return interpretation;
+}

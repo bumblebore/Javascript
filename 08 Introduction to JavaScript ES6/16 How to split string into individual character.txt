@@ -1,0 +1,9 @@
+Ans. .slice(from index, till-notincluding index) method
+
+var name = "Angela";
+from 0 to 1(not including 1)	//String letter position 0,1,2,3,4,5 
+name.slice(0,1)
+
+Output "A"	//slice is Case sensitive
+Used to view only 140 character and not type further
+		//Short cut : Upper bound - Lower bound

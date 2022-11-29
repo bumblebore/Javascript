@@ -1,0 +1,19 @@
+Q1) How to create JS String?
+	let text = "My sequence of characters"
+
+Q2) What are strings?
+Sequence of ccharacters, with number, symbol etc
+
+How to combine strings? + sign 
+	//Concatenation
+
+How concatenation works?
+"A" +  " " + "B" = "A B"
+"hello" + "world" = "helloworld"
+"hello" + " " + "world" = "hello world"
+
+
+
+Q3) How to find length of string?
+	let text = "ABCDE"
+	let legth = text.length;

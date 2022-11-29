@@ -1,0 +1,25 @@
+Logic: not div by 4 -> not leap
+             yes by 4 not by 100 -> Leap
+             yes by 4 yes by 100 not by 400 : not leap
+             yes bt 4 yes by 100  yes by 400 : leap          
+  
+
+function isLeap(year) {
+  if (year % 4 === 8) {
+     if  (year %100 === 0) {
+        if  (year % 400 === 0) {
+	return  "Leap year" } 
+        else {
+	return "Not leap year";
+	}
+	
+   } else {
+ 	return "Leap year";
+}
+}
+} else{
+   return  "not leap year"
+}
+
+
+}

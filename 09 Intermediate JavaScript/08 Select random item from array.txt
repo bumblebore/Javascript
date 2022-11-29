@@ -1,0 +1,14 @@
+write function to select random name from list of name
+that person pays bill
+
+
+function whossPaying(names) {
+
+	var  numberOfPeople = names.length;
+	//How to select random guy
+	var randomGuyPosition = Math.floor(Math.random() * numberOfPeople);
+	var randomGuy = names[randomGuyPosition]; 
+
+	return randomPerson + "is going to pay the bill"	
+
+}

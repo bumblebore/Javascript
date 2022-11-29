@@ -1,0 +1,12 @@
+The output/ return value replaces the part of code where function is called
+//note x is user input here
+function A(x) {
+
+console.log(  B(x, 1.5)   );
+}
+
+function B(y, z) 
+	{
+var k = y/z; 
+return k;
+}

@@ -1,0 +1,7 @@
+var a = 1; 	//typeof(a) is number
+var b = "1";	//typeof(b) is string
+
+
+here
+a === b is not true		//does not check data type
+a == b is true		//does not check data type

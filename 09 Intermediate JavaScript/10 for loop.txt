@@ -1,0 +1,12 @@
+Note: all loops can be written in while loop
+	
+
+For loop is a modification of while loop
+1) Start condition
+2) Check  condition
+	2a) if condition is true execute loop code
+	2b) perform change //here i++
+
+      what   while 	   perform 
+       start   condition  change
+for (i = 0 ; i< 2; i++)

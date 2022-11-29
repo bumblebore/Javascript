@@ -1,0 +1,21 @@
+var name = "Angela";
+name.toUpperCase();
+//Angela
+
+name.toLowerCase();
+//angela
+
+
+Ex.
+
+var name = prompt("What is your name?")
+var firstChar = name.slice(0,1)
+var upperCaseFirstChar = firstChar.toUpperCase();
+var restOfName= name.slice(1,name.length);
+var capitalisedName = upperCaseFirstChar + restOfName;
+alert("Hello " +capitalisedName);
+07:34 12-09-2022
+Why test your code? For edge cases (Cases we havent thought about but might happen
+			when 1000s of users using website)
+	For ex here if user types anGELA , it is returned AnGELA
+	

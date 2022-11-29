@@ -1,0 +1,17 @@
+1) Give meaningful names that show what data is stored inside
+
+2) Dont use keywords
+
+3) Dont begin with no., can contain no.
+
+4) Cant contain spaces
+
+5) Can only contain :
+	letters
+	number
+	dollar sign
+	underscore
+
+6) Use camelspacing
+	firstWord
+	theRapist vs Therapist 

@@ -1,0 +1,29 @@
+Note it is a pseudo random no. generator.Why pseudo?
+People have tried to get truly random no.
+
+1) Generate bw  0  -   0.9999999999999999999...
+Use Math.random() function 
+
+
+
+var n = Math.random();
+
+
+2) Generate <=n
+Multiply by n and floor it  add 1 coz it wont reach n
+
+Multiply random no. by n
+
+n* Math.random();
+Math.floor(n) + 1;
+
+
+
+Ex.
+Build a random no. love calculator :P
+prompt("What is your name");
+prompt("What is their name");
+
+
+var loveScore= Math.floor(100*Math.random()) + 1;
+console.log(lovescore);

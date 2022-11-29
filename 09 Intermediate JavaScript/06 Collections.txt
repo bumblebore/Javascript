@@ -1,0 +1,25 @@
+Javascript array
+
+How to create and store items
+var guestList = ["Abhi" , "Akshay" , "Mummy" , "Papa" ];
+
+How to print all items
+console.log(guestList);
+
+How to print particular item? By index
+console.log(guestList[0]);
+
+How to print length
+console.log(guestList.length);
+
+
+How to check if includes?
+guestList.includes(guestName)
+
+var guestName = prompt("What is your name");
+if (guestList.includes(guestName)) {
+ 	alert("Welcome");
+} else {
+	alert("Sorry maybe next time");
+}
+}

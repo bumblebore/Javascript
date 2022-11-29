@@ -1,0 +1,14 @@
+how to pass parameter to function?
+Passing parameters to the function
+
+function getMilk (bottles)
+
+
+Why pass parameters to function?
+So it can be used inside the block of code
+Function becomes more dynamic, not just repeating some code
+Can get new data and implement new data in that code
+function getMilk (bottles)  {
+	var cost = bottles*1.5;	//variable cost needs the bottles count	
+}
+

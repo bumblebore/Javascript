@@ -1,0 +1,23 @@
+var x =5;
+
+1) How to increment by 1
+x++;
+
+x++ => x = x + 1
+x--   => x = x  - 1
+
+2) How to increment by n
+x+= n
+x = x+n;
+
+3) Preincrement vs post inncrement?
+varx = 3;
+ var y = x++;
+//value of x is assigned to y first
+//then value of x is incremented
+// y = 3  x = 4
+
+varx = 3;
+var y =++x;
+//value is incremented first then assigned
+y = 4 x =4

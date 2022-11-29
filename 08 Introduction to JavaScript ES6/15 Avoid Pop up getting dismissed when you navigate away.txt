@@ -1,0 +1,4 @@
+When you navigate away pop up is dismissed
+he tweet variable becomes null value
+
+You get error here

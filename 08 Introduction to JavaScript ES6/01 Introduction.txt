@@ -1,0 +1,22 @@
+JS powers the web 
+
+Netscape tech is used in firefox
+
+
+Earlier : For functionality
+	Website sent request to data server
+	At server computation and Business logic happened
+	Return webpage with new data
+
+Netscape thought?
+	Dynamic Web : Realtime user interaction
+	Server out of picture
+	Code should run on browser
+	How? Create a scripting language which was easy and simple enough
+		for non dev and non programmers to add functionality to website
+	JS created in 10 days
+
+How to turn off JS in Chrome?
+Setting -> JS -> Content setting -> JS Disallow
+Try writing tweet, you wont be able to see characters you have written
+Without JS there are no Ads

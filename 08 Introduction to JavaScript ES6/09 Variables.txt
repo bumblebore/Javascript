@@ -1,0 +1,30 @@
+Why  variables?
+
+Commit piece of info in memory in form of variables
+Used to store data , data can be changed
+
+Can variables be changed?
+Yes
+
+How to create variable?
+var myName = "Angela";
+
+it only has to occur once in lifetime of variable
+
+
+How to refer to the variable?
+Directly by using name
+
+var MyName = "Angela"
+alert(MyName);
+
+Output: alert pops up sayin angela
+
+
+How to store information in that variable?
+ 
+var myName = "Angela";
+var yourName = prompt("What is your name");
+//whatever prompt you enter is  returned and  is stored in variable yourName
+//refer to your variable  in the alert
+alert("My name is" + myName + "welcome to my course" + yourName + "!");

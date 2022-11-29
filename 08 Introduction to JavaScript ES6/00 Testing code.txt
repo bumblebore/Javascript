@@ -1,0 +1,3 @@
+while writing JS code in index.js, you can always test it out in console
+
+	-> Inspect -> Console

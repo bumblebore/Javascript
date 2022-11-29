@@ -1,0 +1,15 @@
+Functions are package for repeated block of codes, 
+
+
+How to create functions?
+
+function function_name() {
+ //Code
+}
+
+How to use the function?
+By calling
+  How to call?
+    function_name();
+
+For ex put diagonal_move() function instead move right + move left
