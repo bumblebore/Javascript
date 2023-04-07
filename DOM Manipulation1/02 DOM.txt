@@ -1,0 +1,50 @@
+What is DOM solution?
+
+Catalogs webpage into individual objects that we can select and manipulate
+(Static to dynamic)
+
+1) What is job of browser?
+Browser coverts HTML code to DOM elements
+Turns elements and data into tree structure.
+
+
+2) How broswer convert html to dom elements? check crp
+
+<html>
+head
+  title    title
+head
+
+body
+ button   button
+body
+
+</html>
+
+_______________________________________
+elements converted to objects
+all things are in document object
+document
+       |
+    html
+  /         \
+head    body
+  |	|
+title       button
+ | 	    \
+MyWebsite   Alert
+_________________________________________
+use html tree visualizer chrome plugin
+Entire tree is in document object
+
+how to access document in cosole?Special JS methods
+ type document in console
+
+document.firstElementChild 
+ -> Get respective html element
+can also store it ia variable
+
+var head = document.firstElementChild 
+______________________________________________________________________
+
+

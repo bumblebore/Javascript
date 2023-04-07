@@ -1,0 +1,89 @@
+Given: index.html
+
+<meta http-equiv= A-UA-Cumpdtlu1e
+content="IE=edge">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>Master DOM Manipulation: Part 1</title>
+(sty1e>-~
+
+</style>
+</head>
+<body>
+(div c1ass="container">
+<h1 id="main-heading">Favourite Movie
+Franchise</h1>
+<ul>
+<li c1ass="list-items">The Matrix</li>
+<li class="list-items">Star Nars</li>
+(li c1ass="list-items">Harry Potter</li>
+<li class="list-items">Lord of the Rings</
+li>
+<1i c1ass="list-items">Marvel</li>
+</ul>
+</div>
+I (script src="gpp;i§"></script>
+</body>
+
+
+1) How to select html element?
+	1.1) .getElementById()	//easiest way to find html element inside dom tree
+
+		const title = document.getElementById('main-heading');		
+		console.log(title);
+
+	>Output:
+	<h1 id="main-hegging">Favourite Movie Franchise</h1>
+	//hover to see where highlighted in browser
+
+	//note: if multiple item with same id --> chooses first one
+	//What we can do with it now?
+		Add styles,manipulate
+
+
+
+
+	1.2)	.getElementByCIassName()
+
+	const listItem = document.getElementsByClassName
+		('list-items')
+	console.log(listItem);
+	>Output
+	HtMLcottection(5) [Li.List-items, Li.List-items, Li.List;iiems,
+	' 0 I I O O I
+	L1.Ltst-1tems, Lz.Ltst-1tems]
+
+	//note: if multiple item with same class --> chooses first one
+
+	
+	1.3)  .getElementsByTagName()
+		
+	const listItems = document.getElementsByTagName('li');
+	console.log(listItems);
+	
+	//note: if multiple item with same tag --> chooses first one	
+	
+
+	1.4) querySelector()		//can grab: element,class,id any		****Preferred
+	const container = document.querySelector('div')
+	
+	console.log(container)
+	>Output:
+	> <div c1ass="container">...</div>	//selects first div	
+
+
+	1.5) querySelectorAll()		//use to select multiple			****Preferred
+	const container = document.querySelectorAll('div')
+	
+	console.log(container)
+
+	>Output:
+	> NodeList(2) [div. container, div. container]
+	
+	//returns list of all matching css selectors
+
+
+	1.6)
+		
+

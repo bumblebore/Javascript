@@ -1,0 +1,106 @@
+ We saw different ways how to inject css in website
+	1) inline
+	2) internal
+	3) external
+
+Similarly for JS
+Best practice to put script right at ed before closing body tag
+If lot of jS code(time cosuming to run)
+Atleast contents of website will be loaded
+	1) Inline JS
+		Add attribute into the tag
+		when body is loaded, JS will get carried out
+			<body onload="alert('Helo')">
+				<h1> Hello </h1>
+			</body>
+		//"" problem, interprets Hello as string
+			//Hence use single quote
+
+	  Problem with inline JS
+		Not modular
+		Difficult to debug
+		Not good practice
+	
+	2) Internal JS  //Write JS code in script tag in body tag
+		<script type="text/javscript">
+			alert("Hello");
+		</script>
+
+	3) External File  //write code in index.js-> add index.js in index.html
+
+case1) insert script in <body>
+1) Create a new file index.js
+	alert("Hello");
+	document.querySelector("h1").innerHTML = "Good Bye";				/doc.query selector will get us entire h1 tag  ->.innerHTML will get us everything inside -> replace with GoodBye
+										//look for h1 and change text to goodbye
+2) in index.html
+	note: where to place css file? <head>
+	          where to place js file?
+		<head>
+		
+		</head>
+		<body>
+		<h1> Hello </h1>
+		<script src="index.js" charset="utf-8"></script>
+
+		</body>
+		</html>
+case2) Insert script in <head>,loads first
+	//Gives error -> cannot set property of innert html of null
+		           the inner html in script looks for h1 but cannot find h1 since body is not 
+			loaded yet
+			
+	<head>
+		<script src="index.js" charset="utf-8"></script>
+		</head>	
+		<body>
+		<h1> Hello </h1>
+		</body>
+		</html>
+
+
+Conclusion: Script maybe related to body -> so add in Body, if add before body, it may load before body is loaded
+_____________________________________________________________________________________________
+Technical:
+Why script tag shouldnt in be in head if js is linked to body element.
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Medium Article Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        let header = document.getElementById("header");
+
+        console.log("header is: ", header);
+    </script>
+</head>
+
+<body>
+    <p id="header">How Browser Rendering Works</p>
+    <div><img src="https://i.imgur.com/jDq3k3r.jpg">
+</body>
+</html>
+
+
+1) parser constructing DOM
+2) script tag found, body tag not parsed in DOM yet
+3) script attempts to access DOM node with id : header , cant find, DOM has not parsed body , and body contains our id : header node
+	Error: Output: header : null
+	
+
+Q) Will adding external script help? NO, DOM still not constructed in header
+note: DOM construction is step by step, wait for all construction to avoid errors
+
+
+
+Q) What if JS is loaded online form internet, DOM construction halted
+Since JS can also access CSSOM,
+JS execution halted, until CSSOM ready
+
+
+Conclusion:
+DOM stops ->until JS script executed
+JS stops     -> until CSSOM is generated

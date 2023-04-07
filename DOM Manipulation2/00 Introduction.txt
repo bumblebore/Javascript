@@ -1,0 +1,56 @@
+objective:
+	modify , change , delete elements of website
+
+
+
+1) What DOM tree  looks like?
+	What are these? nodes with parent child relationship
+		Window object		//toolbars,height,width of window
+			Dom object		 
+
+			Document
+
+			Element<html>
+
+		/				\
+Element						Element	
+<head>						<body>			//head and body are siblings
+  |						      /			\
+
+Element		    Class Atr  ---  Element			Element	
+<title>		   "className"		<p>			<h1>
+  |							|			|
+Text							Text			Text
+'This is my website'			   'My paragraph'		'My Header'	
+
+				//note: html attributes: like id,class are also nodes in dom hierarchy 
+				//but dont participate in parent child  relationship
+				//how are they accessed? properties of element node they are contained in
+
+
+
+	1.1) What features of DOM
+	1.2) JS commands to manipulate DOm
+
+
+2) 
+
+	2.1) What is DOM?
+		Document object model
+		What is "document"? Built in object with many properties and methods
+			what is use of document object? manipulate content,structure and style of project
+
+		we access document object using Javascript
+
+	2.2) What methods to select DOM?
+
+
+	2.3) how to traverse DOM
+
+	2.4) How to manipulate DOm
+
+
+	2.5) Event handling in DOM
+
+
+	

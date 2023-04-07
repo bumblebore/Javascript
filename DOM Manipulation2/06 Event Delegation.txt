@@ -1,0 +1,143 @@
+1) why event delegation? 
+		users can append single event listener to parent element
+			--> adds to all present and future descendants matching selector
+
+
+	1.1)
+
+	Given: unordered list of sports in html file
+	//What is id of list? sports
+	//each item - their own ids
+
+	Each list item --> when clicked
+	console : football clicked
+	background changed to light gray
+	//same for each list items
+
+	index.html
+	<body>
+	<ul id-"sports">
+	<11 id-"football">Football<lli>
+	<11 id="basketba11">basketball</li>
+	<11 id="boxing">boxing(/li>
+	<11 id="tennis">tenniS(/11>
+	<11 id="golf">golf</li>
+
+	</ul>
+	</body
+
+	1.2) How to achieve above?
+		1.2.1) apply event listner to each list item
+				//cosole log in callback function
+	
+				//grab the target -> store it --> if target matches li --> target.style.backgroundColor = 'light'
+		
+		1.2.2) duplicate for all		
+
+	1.3) Test: Click footbal --> background cheanges to grey and console logs : "football is clicked"
+
+	1.4) How to optimize this code? Event Delegation
+
+App.js
+
+document.querySelector('#football').addEventListener('click', function(e){
+	console.log('football is clicked')	
+	const target = e.target; 
+
+	if(target.matches('li')) {
+		target.style.backgroundColor = 'lightgrey'
+	}		
+})
+
+document.querySelector('#basketball').addEventListener('click', function(e){
+	console.log('basketball is clicked')	
+	const target = e.target; 
+
+	if(target.matches('li')) {
+		target.style.backgroundColor = 'lightgrey'
+	}		
+})	
+
+document.querySelector('#boxing').addEventListener('click', function(e){
+	console.log('boxing is clicked')	
+	const target = e.target; 
+
+	if(target.matches('li')) {
+		target.style.backgroundColor = 'lightgrey'
+	}		
+})	
+
+document.querySelector('#tennis').addEventListener('click', function(e){
+	console.log('tennis is clicked')	
+	const target = e.target; 
+
+	if(target.matches('li')) {
+		target.style.backgroundColor = 'lightgrey'
+	}		
+})	
+
+
+document.querySelector('#golf').addEventListener('click', function(e){
+	console.log('golf is clicked')	
+	const target = e.target; 
+
+	if(target.matches('li')) {
+		target.style.backgroundColor = 'lightgrey'
+	}		
+})			
+
+
+
+2) Why event delegation? we understood
+	2.1) How to optimize this code?
+		dont assign to individual list items
+		instead delegate listening to parent  --> <ul id-"sports">		
+		
+	How parent element will know? it will catch the bubbling event		
+
+<ul id-"sports">
+<11 id-"football">Football(/li>
+<11 id="basketball">basketball<lli>
+<11 id="boxing">boxing</li>
+<11 id="tennis">tennis</li>
+<11 id="gold">golf</li>
+</ul>
+
+	2.2) 
+	App.js
+		2.2.1) select parent #sports ul --> add event listener
+			//run a function when clicked
+				grab the target from event object e
+				use .getAttribute('id') to get the id of target element   //ex boxing etc
+			//since all have id attribute --> any that we click --> will get picked up	
+
+	
+//This method has clear benifits
+saves memory
+
+//It will also add it to future descendants that get added in that parent
+	2.3) Test:// try creating a new element also
+			//change inner text , setAttribute and appendChild
+			//test: click rugby --> console logs
+	
+App.js
+	document.querySelector('#sports').addEventListener('click')
+	('click', function(e){
+		console.log(e.target.getAttribute('id') + ' is clicked');
+
+		const target = e.target;
+
+		if(target.matches('li')) {
+			[target.style.backgroundColor = "lightgrey';
+		}	
+	})
+	
+	const sports = document.querySelector('#sports');
+	const newSport = document.createElement('li')
+	newSport.innerText = 'rugby';
+	newSport.setAttribute('id', 'rugby');
+	sports.appendChild(newSport);
+
+
+	//
+	

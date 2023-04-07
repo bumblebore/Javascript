@@ -1,0 +1,84 @@
+1) Check DOM tree
+2) Use appropriate (querySelector/getElement)
+3) store in a variable, manipulate
+
+Summary:
+QuerySelector > getElement
+
+Manipulate html elements using JS(dot notation)
+html elements have properties and methods(functions)
+//store document object i variable
+var heading = document.firstElementChild 
+
+heading.style.color = "red";
+document.querySelector("input").click();  
+______________________________________________________________________________________
+Magic: Change HTML without changing HTML code. Use JS querySelector
+
+Ex you want to change this "third" without touching html code
+<li class="list"> Third </li>
+
+Solution:
+//Query Selector
+document.firstElementChild.lastElementChild.lastElementChild.lastElementChild.innerHTML = "Angela"
+
+______________________________________________________________________________________
+
+GetElementsByTagName
+
+document.getElementsByTagName("Li");
+_______________________________________________________________________________________
+<body>
+   <h1 id="title"> Hello </h1>
+   <ul id="list">
+   <>
+   <li class="item"><a href="www.google.com">Google</a></li>
+   <li class="item">Second</li>
+   <li class="item">Third</li>
+   </ul>
+</body>
+
+
+Console:
+document.getElementById("title");	//can only put id
+	you get h1
+document.getElementByClass("xyz")   // can only put class
+document.getElementById("title").innerHTML = "Good Bye
+	//change text inside title, change inner HTML"
+
+//another way to select an element //querySelector
+	put selector in parenthesis
+	earlier when using getElementByID and getElementByClass we can only put id/ class
+	respectively
+But in document.querySelector can put element/class/id anything
+document.querySelector("h1");	//selecting h1
+document.querySelector("#title");	//selecting id	
+document.querySelector(".btn");
+
+
+//suppose we have 2 links (href)
+how to select?
+document.querySelector("li a")
+document.querySelector("a")
+//can also specify index
+How to make more complex queries?
+document.querySelector(#list .item")[2].style.color = "blue";
+	//can specify id, class, element, tag, names
+	Combine them to target the element we want
+
+//if we had used getElement method , harder to target individual objects
+QuerySelector > getElement
+
+
+
+_________________________________________________________________________________________
+Ex2)
+Change color of google link list item to red
+document.querySelector("li a");
+//always check first if you got correct element then change color
+document.querySelector("li a").style.color = "red";
+
+//But this changes the color of bullet point only
+	Why?anchor tag is separate element from list item
+
+

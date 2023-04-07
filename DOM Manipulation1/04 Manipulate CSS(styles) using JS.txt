@@ -1,0 +1,35 @@
+We learnt how to select elements using DOM
+How to manipulate selected elements using JS?
+
+
+Earlier we used style  property of element object
+//Select element and change color using style property
+//note take care of javscript naming conventions
+	//different than CSS naming convention
+	for ex font-css is property name in css
+	but in JS	fontName
+		a) Remove Dashes
+		b) Second letter should be capital
+		c) represent values as strings
+document.querySelector("h1").style.color = "red"
+document.querySelector("h1").style.fontSize = "10rem";
+
+Where to find JS-CSS property names?
+	w3schools -> Javascript -> HTML DOM style obejct -> Style Object properties
+
+//for ex
+in CSS:
+	element.style {
+	    visibility : hidden;
+	}
+in JS:
+document.querySelector("h1").stylevisibility = "hidden";
+
+//for ex 2
+
+in CSS;
+	element.style {
+		background-color: yellow;
+}
+but in JS: //color property
+	document.querySelector("button").style.backgroundColor = "Yellow";

@@ -1,0 +1,129 @@
+Window is global top level object //represents the tab in browser
+	What window object has info? toolbar,height,width of window,prompts,alerts
+
+
+Objective: How to move through DOM without specifying each and every element or node beforehand
+		traverse DOM tree
+
+
+a) Traverse the DOM
+	we know DOM has nodes (Parent - child relationships)
+
+	a.1) 
+	below h1 and ul are siblings
+	Traverse up from ul 
+
+	let ul = document.querySelector('ul');
+	console.log(ul.parentNode);				//>><div class="container">_</div>
+	console.log(ul.parentElement);			//>><div class="container">_</div>
+	console.log(ul.parentNode.parentNode);		//<body>_</body>
+	console.log(ul.parentElement.parentElement);	//<body>_</body>
+
+
+	const html = document.documentElement;
+	console.log(html);					//<html lang="en">
+									  <head>_</head>
+									  <body>_</body>l
+									  </htm1>
+
+	console.log(html.parentNode);				//null	//document node and element node not of same type  --> hence null
+	console.log(html.parentElement);			//null
+
+//Hierarchy:	
+	<body>
+	  div class container
+	    h1
+	     ul --- li
+	
+
+	a.2) Traverse properties of element
+
+	let ul = document.querySelector('ul');
+	console.log(ul);						//<u1>...</u1>
+	console.log(u1.childNodes);				//ModeList(11) [text, Li.List-items, text, Li.List-items, text,
+									  li.List-items, tent, Li.List-items, text, Li.List-items, text]
+									//6 list nodes //5 + 1 (indentation counted as text)
+
+	console.1og(u1.firstChi1d);				//#text
+	console.log(u1.lastChild);				//#text
+
+	//If we remove indentation --> gives 5 nodes
+	<ul>
+	<li c1ass-"1ist-items">The Matrix<lli>
+	<li class-"list-items">Star Nars</li>
+	<1i class-"list-items">Harry Potter</1i>
+	<1i claSSn"list-items">Lord of theRings</li>
+	<li class="1ist-items">Marve1(/1i>	
+	</u1>
+
+	
+	a.3) Try styling 
+	ul.firstChild.style.backgroundColor = 'blue';
+	ul.childNodes[1].style.backgroundColor = 'blue';
+	ul.childNodes.style.backgroundColor = 'blue';
+
+
+	a.4)
+	console.log(ul.children)			//returns html collection + list
+	console.log(ul.firstElementChild)		//<li class-"list-items">The Matrix<lli>
+	console.log(ul.lastElementChild)		//<li c1ass="list-items">Marvel</li>
+		
+	//Why returning html collection?
+	//HTMLCOLLection(§2 [Li.List-items, Li.List-items, Li.List-items,
+	li.List-items. i.List-items]
+	0: li.list-items
+	1: 1i.1ist-itens
+	2: 1i.1ist-itens
+	3: li.1ist-items
+	4: li.list-items
+	length: 5
+	[[Prototype]]: HTMLCollection
+
+	
+	a.5) Traversing Sibling Node Traversal
+
+		//Siblings can be different type of node
+		
+		let ul = document.querySelector('ul');
+		const div = document.querySelector('duv');
+
+		
+		console.log(div.childNodes);				//'NodeListU) [text, h1#main-heading, text, comment, tag-ii,text]
+										>0: text
+										>1: h1#main-heading
+										>2: text
+										>3: cement
+										>4: text			//previosuSibling
+										>5: ul
+										>6: text			//nextSibling
+										length: 7
+										> [ [Prototype] ] : NodeList
+		console.log(ul.previousSibling);			//#text
+		console.log(ul.nextSibling);				//#text	
+
+		console.log(ul.previousElementSibling);			//<h1 id="main-heading">Favourite Movie Franchise</h1>
+		console.log(ul.nextElementSibling);				//null
+
+<!DOCTYPE html)
+<html lang="en">
+<head>...
+</head>
+
+
+<body>
+<div class="container">
+	<h1 id="main-heading">Favourite Movie
+	Franchise</h1>
+	<!-- Space between -->
+	<ul>
+	<li c1ass-"1ist-items">The Matrix<lli>
+	<li class-"list-items">Star Nars</li>
+	<1i class-"list-items">Harry Potter</1i>
+	<1i claSSn"list-items">Lord of the
+	Rings</li>
+	<li class="1ist-items">Marve1(/1i>	
+	</u1>
+</div>
+</body>
+<script src="app.js"></script>
+</htm1>

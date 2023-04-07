@@ -1,0 +1,51 @@
+Objective: Click New Quote --> to generate quote by famous person
+
+Cocnepts:
+
+	document.querySelector()
+
+	addEventListener()
+
+	Math Object()
+
+	innerText
+
+
+1)
+	1.1) Link stylesheet
+	1.2) copy google font <link>
+
+index.html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset-"UTF-8">
+	<meta http-equiv-"X-UA-Compatible" content-"IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--Stylesheet -->
+	<link rel="stylesheet" href="styles.css"> 
+	<!-- Global Font Links -->
+
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/cs52?fami1y=Roboto&display=swap" rel="sty1esheet">
+	<!-- FontAwesome Link -->
+	<link rel="sty1esheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+	integrity="shaSlZ-kawaDsLkIlep6LFn182NdLGxu9YAA1vaINks4PhcElQqucyVLLDQaMthlBquoXtEKNosOWanXge10g=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<title>DOM Manipulation P2</t1tle>
+	
+
+</head>
+<body>
+</body>
+</htm1>
+
+
+project-1.js
+
+styles.css
+
+img folder

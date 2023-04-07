@@ -1,0 +1,59 @@
+1) User interface
+           |
+2) Browser Engine		bridge bw UI and render engine  //JS engine //ex V8 for chrome
+           |
+3) Rendering Engine	//interpreting : produces result from program , compiling = produce program in assembly then result
+		// interprets HTML and XML documents with images	
+		//ex of rendering engine: Chrome : Blink, IE: Trident, Firefox: Gecko
+      |	                 	       |				|
+4) networking        	5) Javascript Interpreter		    6) UI Backend	
+
+get urls		interprets + execute JS code		 Draws widgets for ex
+using internet	sends result to rendering 		 input box
+protocols		engine
+
+
+7) Data Persistence
+Local DB for cache cookie,bookmarks,preferences etc
+
+
+
+Q) How DOM Generated? Critical Rendering Path (CRP) 
+
+
+CRP :
+1) browser reads html,css,js files through raw bytes ->through networking layer
+2) convert raw bytes -> readable html using html character encoding
+3) break html file into units of parsing tokens	//tokoenization
+4) convert token into nodes //Displayed in DOM
+5) link nodes in a tree DOM, how? establish parent child relationships, every node relationship is established
+	//DOM generated
+
+
+Q) How CSSOM is processed
+1) receive raw bytes
+2) convert into characters
+3) break into parsing tokens		//parser does
+4) create nodes //displayed in CSSOM
+5) CSSOM created tree structure		//browser recursively looks at this css tree structure and calculates styles
+
+
+Q) How to combine both trees?
+Render Tree genereated
+
+
+Q) Layout of render treeelements
+, on screencalculations etc, find where to position elements
+
+Q) avoid time delay, get HTML and CSS first to client ASAP, reduce time for first render
+
+
+Q) Where JS in picture? Why JS is danger to browser?Why placing script tag at bottom of body tag is important
+JS helps us modify content and styling of page
+So to avoid problems, Browser stops construction of both trees when JS script executing
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Q) How to optimize website for performance? Optimize the entire CRP cycle
+CRP strategy : helps browser load web app page as quickly possible
+	how? tell what resource to load, what order to load etc

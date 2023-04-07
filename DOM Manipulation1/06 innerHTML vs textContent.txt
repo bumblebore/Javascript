@@ -1,0 +1,30 @@
+How did we select text in html element earlier? inner-HTML
+Note: HTML also goes in quotation marks //value is string
+	if not -> it will consider JS code
+
+
+Objective: 
+document.getElementById("title").innerHTML = "Good Bye";
+
+VS
+
+document.getElementById("title").textContent = "Hello";
+<h1 id = "title">Hello</h1>
+------------------------------------------------------------------------------------------------
+document.querySelector("h1").innerHTML;
+// Gives "Hello"
+
+But if we had strong tag 
+
+<h1 id = "title"><strong>Hello </strong></h1>
+//Also gives
+document.querySelector("h1").innerHTML;
+<strong>Hello</strong>
+_______________________________________
+Solution
+document.querySelector("h1").textContent;
+Gives only
+"Hello"
+
+What advantage of using inner html? Can also add HTML code  on fly
+document.querySelector("h1").innerHTML = "<em> Good Bye</em>"

@@ -1,0 +1,59 @@
+Q) Why use JS to change style? wasnt css supposed to do it? Yes,
+But for dynamic changes we need to change CSS with JS
+
+ideally 
+Must separate HTML, CSS and JS
+ideally all style should be in css
+
+
+Solution: Class List property
+//Gives list of classes attached to element
+
+1) Add class to element's class List
+2) use newly created class with element
+3) add style to this newly created class
+
+Feature: Can keep custom styles in style sheet for custom classes and use whenever we want
+
+for ex here classes attached to btn element
+document.querySelector("button").classList;
+
+//Add classes to class list
+
+//here we add class invisible to button
+document.querySelector("button").classList.add("invisible");
+
+//How to check? Check elements in document//button section //you will see invisible class added
+<button class="btn invisible">Click Me</button>
+
+//Now can create separate Style for invisible class
+
+.invisible{
+  visibility: hidden;
+}
+
+Summary: we can keep all styles in stylesheet
+and turn it on off using JS
+_____________________________________________________________-
+How to remove class
+document.querySelector("button").classList.remove("invisible");
+
+______________________________________________________________
+How to toggle (if Applied ->Remove, if removed -> applied)	
+document.querySelector("button").classList.toggle("invisible");
+______________________________________________________________________
+
+Ex apply 
+.huge {
+   font-size: 10rem;
+   color : red;
+   font-weight: bold;
+}
+
+Apply:
+document.querySelector("h1").classList.add("huge");
+
+//uses 1 line JS
+//keeps code separate. (original class not disturbed/ not using inline dynamically also)
+//keeps behaviour in JS
+//keeps style in Stylesheet

@@ -1,0 +1,267 @@
+1) What is event probagation?
+
+how event travels through Document object model	//electricity thru wire
+
+3 Phases 
+
+1.1) Event Capturing			//starts from root
+
+1.2) Target					//reach target
+
+1.3) Event Bubbling			//bubble up from target to root
+
+	//along the way event listener notifies each element : html, body, div
+
+	Document
+	HTML
+	BODY
+	DIV
+	BUTTON
+	
+
+
+
+2) How it works
+Given:
+index.html
+	div -> class =div2
+		 class =div1
+
+
+0) test:
+many event listeners
+		//one for Window, added using .addEventListener()
+		//one for Document
+		//one for Div2
+		//one for div1	
+		//one for button
+		//Note: could have created variable for window, document separately, but this is shorter
+		//What respective click event functions do? log out element name
+		//for button event function contains function(e)  //e as parameter
+
+document.querySelector("").addEventListener("", function() {}, true)
+
+	//Basically 3 parameters in .addEventListener
+	What is 3rd parameter? tells if want to use EVENt CAPTURE or EVENT BUBBLING
+
+0.1) Test -> click button
+>Output
+Window 
+Document
+DIV 2 
+DIV 1 
+
+PointerEvent {isTrusted: 01w, pointcrfd: ;, width: 1, height: 1, pressure: 0, ...}
+
+
+   0.1.1) Why above output? Capture phase
+	starts from Window --> notifies other elements --> reaches target
+   0.1.2) What is it? All information about the event
+   		What was e inside function for button event listener?	e is event object
+
+		document.querySe1ector("button").addEventListener
+		("click", function(e) {
+		console.log(e);
+		},true);	
+
+		//PointerEvent {isTrusted: 01w, pointcrfd: ;, width: 1, height: 1, pressure: 0, ...}	//represents all information about 																		that event.
+																	What event? event that occured on 																		button
+
+  0.1.3) What if we open event object
+
+isTrusted: true
+altKey: false
+altitudeAngle: 1.5707963267948966
+azimuthAngle: 1.5707...
+bubbles: true
+button: 0
+buttons: 0
+cancelBubble: false
+cancelable: true			//all information about the event that happened
+target: button			//notice target property
+
+
+	//try to console.log(e.target)
+	//document.querySe1ector("button").addEventListener
+	("click", function(e) {
+	console.log(e);
+	},true);
+
+	>Output:											//Event capture phase
+	Window
+	Document
+	DIV 2
+	DIV 1
+	<button>Click</button>			//shows event is on what element 	//Event target phase
+
+
+	//Try below
+	//document.querySe1ector("button").addEventListener
+	("click", function(e) {
+		console.log(e.target.innerText = 'clicked!');
+	},true);
+
+	If we click the "CLick" button --> it changes to  "clicked!"
+
+ 0.1.4) How and when bubbling takes place?
+		grab all true values from 3rd parameter --> change those values to false //note they are false by default
+
+
+		0.1.4.1) if 3rd parameter true  -> reach target phase
+			0.1.4.1.1) Change 3rd parameter to true
+
+			1) include event object in div2 event listener
+				2) call stopPropogation() method on e object
+
+				document.querySe1ector(".div2").addEventListener
+				("click", function(e) {
+				e.stopPropogation()
+				console.log('DIV 2');
+				},false);
+
+			2) Test: Click button
+
+			>Output:
+			 Window
+			 Document
+			 DIV 2
+
+				
+
+		0.1.4.2) 
+			if 3rd parameter false -> bubble up
+ 			Click button		//starts at target  //bubbles upwards towards highest position in DOm tree
+			clicked!
+			DIV 1
+			DIV 2
+			Document
+			Window
+			
+			0.1.4.2.1) How to stop event propogation for bubble up?
+				1) include event object in div2 event listener
+				2) call stopPropogation() method on e object
+
+				document.querySe1ector(".div2").addEventListener
+				("click", function(e) {
+				e.stopPropogation()
+				console.log('DIV 2');
+				},false);
+
+		
+		3) Test: click button -->after reaching div2 --> propogation stops
+	
+	>Output:
+	clicked!
+	DIV 1
+	DIV 2
+
+			//notice: how App.js code only works till DIV2	
+
+
+	0.1.4.3) Change values back to false
+
+		0.1.4.3.1) Grab "once" property and set to true as 2nd parameter
+			//What this will do?
+
+	
+		document.query$elector(".div2").addEventListener
+			("click", function() {
+				// e.stopPropagation()
+				console.log('DIV 2‘);
+			},{once: true});			
+		
+		---> CLick button
+		>Output:
+		clicked!		//starts normally from bottom
+		DIV 1			//bubbles up till window
+		DIV 2								//DIV2 will fire only once since  {once: true}
+		Document		
+		Window
+
+		---> Click button again
+		clicked!		
+		DIV 1			
+		Document		//DIV 2 didnt fire
+		Window
+
+
+	0.1.4.4) preventDefault()	//used to apply on anchor tags //which have problem of event firing v quick
+			
+		//Make few changes in index.html
+
+			
+								//anchor tag
+		change <button>click</button> --->  <a href="" class="button">Click </a>	
+		Add display: block; to .button{} //style
+		target button class 
+
+		document.querySe1ector(".button").addEventListener
+		("click", function(e) {
+		console.log(e.target.innerText = 'clickedl');
+		},false);			
+
+
+		//Why?
+		Test: Click anchor tag --> events fire , but disappear quickly (Refresh)
+	
+		Why? what is anchor tag default behaviour? redirect to some place
+
+		How to stop from happening? use .preventDefault() on 'e' event object
+
+		document.querySe1ector(".button").addEventListener
+		("click", function(e) {
+			e.preventDefault()
+			console.log(e.target.innerText = 'clickedl');
+		},false);
+		 
+
+		//test again -> CLick anchor tag --> output bubbling phase is visible 
+clicked!
+DIV 1
+DIV 2
+Document
+Window
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+App.js
+	
+index.html
+
+<lDOCTYPE htm1>
+(html lang="en">
+>(head>-u
+(/head>
+<body>
+<div c1ass="div2">
+	2
+	<div class="div1">
+		1
+		<button> Click </button>
+(/div>
+</div>
+(/div>
+</body>
+(script src="app.js">(/script>
+(/html>
+
+
+
+App.js
+
+window.addEventListener("click", function() {
+console.log('Window');
+}.true);
+document.addEventListener("click", function() {
+console.log('Document');
+11true);
+document.querySe1ector(".div2").addEventListener
+("click", function() {
+console.log('DIV 2');
+11true);
+document.query$e1ector(".divl").addEventListener
+("click", function() {
+console.log('DIV 1‘);
+1.true);
+document.querySe1ector("button").addEventListener
+("click", function(e) {
+console.log(e);
+},true);
