@@ -1,0 +1,14 @@
+HTML Attributes : HTML elements have
+
+	<input type="text" value="Name:">
+
+//How to retrieve HTML attribute value? .getAttribute()
+
+const input = document.querySelector("input");
+console.log(input.getAttribute("value")); 	// Good morning
+console.log(input.value); // Good morning
+input.setAttribute("value", "Good Afternoon");	// Good Afternoon
+console.log(input.value);
+
+
+DOM properties:

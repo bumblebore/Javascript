@@ -1,0 +1,20 @@
+nativelike experience
+
+twitterlite  on mobile  //fast //ez //looks like app
+
+How to make a progressive web app?
+
+1) purpose,features, UI
+
+2) framework: React,Vue,Angular
+
+3) Frontend: HTML,CSS,JS(UI)
+
+4) service workers
+
+5) web app manifest
+	JSON file containing metadata(name,icon,description)
+
+6) test and optimize
+
+7) Deploy & maintain

@@ -1,0 +1,19 @@
+a) same value	//note: '==' converts string/boolean --> value
+
+	1 == '1'			//true	//same value
+	0 == false			//true	//converts false -->0 => 0 == 0
+	null == undefined		//true	//value equal in javascript
+	'0' == false		//true	//type coerce
+	[] == []			//false	//different objects
+	{} == {}			//false	//different objects
+
+
+b) same value, same type
+same length, same sequence, same char ---> 2 strings are strictly equal
+same no. value							 2 no.     are strictly equal
+	0 === false			//true	//different type
+	1 === "1"			//false	//different types
+	'0' === false		//false	//different types
+	null === undefined	//false	//no type coercion
+
+

@@ -1,0 +1,2 @@
+isNaN("Hello"); //true
+isNaN("100"); //false

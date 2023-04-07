@@ -1,0 +1,23 @@
+1) What is Immediately invoked Function Expression(IIFE Function)?
+	JS Function that runs as soon as defined
+	variable declared inside cannot be accessed
+
+	(function () {
+	  // logic here
+	})();
+
+	
+ 1.1) Why use IIFE? obtain data privacy
+		
+	(function () {
+	  var message = "IIFE";
+	  console.log(message);
+	})();
+	console.log(message); //Error: message is not defined
+
+2) What is normal function?
+
+	function normalFunction(){
+	  var message = "Hello";
+	  console.log(message); // Output: Hello
+	}

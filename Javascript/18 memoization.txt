@@ -1,0 +1,27 @@
+1) How to increase a function performance?
+	cache/store previous results		//use parameters of function when function called 							//to index cache
+
+	if data present --> can be returned  //without executing entire function
+	else execute function --> add result to cache
+2)
+
+const memoizAddition = () => {		//callback function
+	let cache = {};				//create an empty cache object
+	return (value) => {			//anonymous function nested inside memoizAddition
+									
+		if (value in cache) {		
+			console.log("Fetching from cache");
+			return cache[value];	//note: how value = index in cache array
+		} else {
+			console.log("Calculating result");
+			let result = value + 20;
+			cache[value] = result;	//store if not already there
+			return result;	
+		}	 
+	}	
+}
+
+// returned function from memoizAddition
+const addition = memoizAddition();
+console.log(addition(20)); //output: 40 calculated
+console.log(addition(20)); //output: 40 cached

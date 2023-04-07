@@ -1,0 +1,59 @@
+1) Call a function after some time
+
+setTimeout(function () {
+  console.log("Good morning");
+}, 2000);
+
+
+1.1)  ClearTimeout
+<script>
+var msg;
+function greeting() {
+   alert('Good morning');
+}
+function start() {
+  msg =setTimeout(greeting, 3000);
+
+}
+
+function stop() {
+    clearTimeout(msg);
+}
+</script>
+
+
+
+2) call function at intervals
+
+setInterval(function () {
+  console.log("Good morning");
+}, 2000);
+
+
+
+  2.1) clearInterval
+
+<script>
+var msg;
+function greeting() {
+   alert('Good morning');
+}
+function start() {
+  msg = setInterval(greeting, 3000);
+
+}
+
+function stop() {
+    clearInterval(msg);
+}
+</script>
+
+3)Promise()
+
+4)async/await
+
+5) XMLHttpRequest
+
+6) fetch()
+
+7) addEventListener()

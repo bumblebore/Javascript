@@ -1,0 +1,56 @@
+Note: Both ways --> eventually create a class	
+ 
+
+1) JS already had prototype based inheritence
+
+	function Bike(model, color) {	//constructor function											//Object constructor function
+		this.model = model;		//object created values passed and assigned
+		this.color = color;
+	}
+
+	Bike.prototype.getDetails = function() {	//add a method to Bike prototype							//getDetails() added to prototype
+		return this.model + "bike has" + this.color + "color";
+	};							//what does? returns string with 'model' and 'color' created using constructor function
+
+	const myBike = new Bike("Mountain", "red");
+	console.log(myBike.getDetails());			
+
+	>Output:"Mountain bike has red color"	//NOTE: Eventually creating a class
+
+
+//Note:
+adding method using .prototype has advantages
+	method shared among all instances (created using constructor functions)	//dont have to dudplicate the method for each object
+//better performance + memory usage
+
+Conclusion: we see prototype based inheritence of a function getDetails().
+
+
+2) Alternative: use ES6 classes		//exact same thing
+  2.1) how is class 
+class Bike {
+	constructor(color, model) {
+		this.color = color;
+		this.model = model;
+	}
+	
+	getDetails() {
+		return this.model + "bike has" + this.color + "color";
+	}
+}
+
+
+ 2.2) Behind the scenes in ES6 classes?
+
+		a) create constructor function  Person()
+
+		b) Create prototype object
+			object contains greet()
+			//can check: console.log(Person.__proto__)   OR  console.log(Person.prototype.greet); 
+			//Person = constructor
+			// Output: ƒ () { [native code] } 			>function greet() { console.log("Hello, my name is " + this.name + " and I am " + this.age + " years old."); }
+ 			
+			//can also check
+				console.log(Person.prototype)  		> Person{}		//why empty? greet() is prototype of 'Person' constructor
+
+	//Conclusion: ES6 classes--> intuitive,simple

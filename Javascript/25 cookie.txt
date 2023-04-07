@@ -1,0 +1,58 @@
+Note: cookie different from localStorage and session storage (webstorage mecchanismm)
+
+cookie ---> user preferences store
+session storage & local storage --> store temp / permenent data
+
+
+
+
+Browser -----> Request ----> 		Server
+    	<------ Response ----- 	Server
+	-----> Request + cookie-->	Server
+
+1) What is cookie? data stored in computer --> to be accessed by browser
+
+document.cookie = "username=John";
+
+
+//remember info about user profile
+
+
+2) Change cookie expiry date:
+document.cookie = "username=John; expires=Sat, 8 Jun 2019 12:00:00 UTC";
+
+
+3) Change cookie path
+
+document.cookie = "username=John; path=/services";
+
+
+
+4) Delete a cookie  //set expiry date
+document.cookie =
+  "username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;";
+
+
+
+5) cookie vs local vs session
+
+where can be accessed?
+	cookie: cookie can be accessed at both client and server
+	local: client only
+	session: client only
+
+how long expiry?
+	cookie: whatever configured
+	local: until deleted
+	session: until tab closed
+
+SSL support?
+	cookie: supported
+	local: not supported
+	session: not supported
+
+Max size:
+	cookie: 4KB
+	Local : 5 MB
+	session: 5 MB
+	

@@ -1,0 +1,10 @@
+const value1 = "hello"; // truthy value
+const value2 = ""; // falsy value
+
+console.log(!!value1); // true
+console.log(!!value2); // false
+
+
+
+falsy values: false,null,undefined,0,NaN," "
+truthy values: true,"hello","0",{},[],function() { }

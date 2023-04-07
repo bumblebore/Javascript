@@ -1,0 +1,51 @@
+variable, function, class ---> move to top of their scope	//before execution
+
+in Javascript --> can only host declarations (Not initializiation)
+
+
+
+
+Ex
+
+console.log(x);	//>undefined		//Surprisingly doesn throw error --> but undefined	//Already declared(not initialized) here due to hoisting
+var x = 10;																//value wont be hoisted since not initialized //hence undefined output
+
+ Why no error? during hoisting(before execution)  ---> x is moved to top of scope 
+
+
+
+
+Code interpreted as:
+
+var x; // declaration is hoisted to the top of the scope
+console.log(x); // undefined
+x = 10; // assignment still happens in the original order
+	
+
+
+Q1) DOes JS by default use hoisting? during compilation --> JS engine hoists -> (variables,functions) ==> hence they can be used before declared
+
+
+Q2) priority of hoisting?
+	var : hoisted			   (can use before they are declared)
+	let,const: hoisted but not init  (variable exists but does not have value, cannot use them until declared in code, if try to access let,const before assigned --> ReferenceError)	
+	function				   (can use before they are declared)
+
+
+Ex
+console.log(x); // Output: ReferenceError: x is not defined
+let x = 10;
+
+
+While
+
+console.log(x);	//>undefined		//Surprisingly doesn throw error --> but undefined	//Already declared(not initialized) here due to hoisting
+var x = 10;																//value wont be hoisted since not initialized //hence undefined output
+
+
+
+Q3) why study hoisting , how it will help prevent bugs?
+ 3.1) learn to declare variables at top
+ 3.2) declare them before using (dont rely on hoisting)
+ 3.3) check if variable was initialized or not
+ 3.4) var,let,const different

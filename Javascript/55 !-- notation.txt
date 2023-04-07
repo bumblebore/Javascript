@@ -1,0 +1,5 @@
+1) decrement value by 1
+2) Check if = 0
+
+
+<!-- 	-->	//comment in HTML,XML

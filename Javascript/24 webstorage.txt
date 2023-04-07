@@ -1,0 +1,83 @@
+0) Check if webstorage is supported
+
+if (typeof Storage !== "undefined") {
+  // Code for localStorage/sessionStorage.
+} else {
+  // Sorry! No Web Storage support..
+}
+
+
+
+1) What is webstorage? API
+
+
+  How to store key-value pairs locally in user's browser?  Websotrage API
+								//does not use cookies to store
+
+	How stores data to client?
+	 	Locals storage : persist data beyond current session
+			//part of Window object
+
+		Session storage : data cleared when session ends
+			//part of Window object
+
+
+Objective: store data and retrieve from BOTH (store in key-value format)
+
+// Store data in Local Storage
+localStorage.setItem('myKey', 'myValue');
+
+// Retrieve data from Local Storage
+const myValue = localStorage.getItem('myKey');
+
+// Store data in Session Storage
+sessionStorage.setItem('myKey', 'myValue');
+
+// Retrieve data from Session Storage
+const myValue = sessionStorage.getItem('myKey');
+
+
+Q) This is not replacement for server-side storage.
+	language settings, theme choices	//User preferences
+	//Caching data
+	//User authentication info: access token, session id
+	//data for offline use
+	//track user behaviour, generate web analytics (conversion rates)
+
+
+
+
+Q) More methods on session storage
+
+// Save data to sessionStorage
+sessionStorage.setItem("key", "value");		//save
+
+// Get saved data from sessionStorage
+let data = sessionStorage.getItem("key");		//read
+
+// Remove saved data from sessionStorage
+sessionStorage.removeItem("key");			//remove
+
+// Remove all saved data from sessionStorage
+sessionStorage.clear();
+
+
+
+Q) How to track changes in storage? window.onstorage
+
+window.onstorage = function (e) {
+  console.log(
+    "The " +
+      e.key +
+      " key has been changed from " +
+      e.oldValue +
+      " to " +
+      e.newValue +
+      "."
+  );
+};
+
+
+	
+Conclusion: webstorage >> cookies
+information more secure , not sent to server , website performance not affected

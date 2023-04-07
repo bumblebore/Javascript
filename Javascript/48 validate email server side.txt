@@ -1,0 +1,12 @@
+npm install validator
+const validator = require('validator');
+const isValidEmail = validator.isEmail('example@example.com');
+console.log(isValidEmail); // Output: true
+
+
+OR
+
+
+const emailValidator = require('email-validator');
+const isValidEmail = emailValidator.validate('example@example.com');
+console.log(isValidEmail); // Output: true

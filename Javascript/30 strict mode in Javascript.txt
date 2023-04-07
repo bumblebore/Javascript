@@ -1,0 +1,57 @@
+1) What is strict mode in javascript?
+	//Tells us about bad syntax javascript
+	//How to use? add "use strict" at beginning of script
+Ex
+"use strict";
+x = 3.14; // This will cause an error because x is not declared
+
+Ex
+x = 3.14; // This will not cause an error.
+myFunction();
+
+function myFunction() {
+  "use strict";				//use local scope and works for localscope
+  y = 3.14; // This will cause an error
+}
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+EX
+	avoid accidently creating a global variable by throwing an error
+
+1)	assignment to non writable property
+"use strict"; // Enable strict mode to catch potential issues
+
+const obj = {};
+Object.defineProperty(obj, "foo", { 
+  value: "bar",
+  writable: false // Make the property non-writable
+});
+
+// Trying to assign a new value to the non-writable property will throw an error
+obj.foo = "baz"; // Throws an error: "Cannot assign to read only property 'foo' of object"
+
+2)	getter only property
+"use strict"; // Enable strict mode to catch potential issues
+
+const obj = {
+  get foo() {
+    return "bar";
+  }
+};
+
+// Trying to assign a new value to the getter-only property will throw an error
+obj.foo = "baz"; // Throws an error: "Cannot set property foo of #<Object> which has only a getter"
+
+
+
+3)	non-existing property/non-existing variable/non-existing object
+
+"use strict"; // Enable strict mode to catch potential issues
+
+const obj = {};
+
+// Trying to access a non-existing property will throw an error
+console.log(obj.nonExistingProp); // Throws an error: "Cannot read property 'nonExistingProp' of undefined"
+
+
+
+

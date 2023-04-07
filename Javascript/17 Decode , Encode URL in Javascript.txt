@@ -1,0 +1,16 @@
+1) How to encode a URL?
+
+	let uri = "employeeDetails?name=john&occupation=manager";
+	let encoded_uri = encodeURI(uri);
+	let decoded_uri = decodeURI(encoded_uri);
+
+
+2) what use? encoding URL strings in URL
+		//why do we need to encode spaces, comma, slashes
+		//special meaning
+
+		spaces = %20
+		commas = %2c
+		slashes= %2F
+
+		//What if these were not encoded? misinterpreted by server

@@ -1,0 +1,123 @@
+1) Creating strings
+
+let str1 = 'Hello World';
+let str2 = "Hello World";
+let str3 = `Hello World`;
+
+
+
+2) using string.methods()
+
+let str = 'JavaScript is awesome';
+
+// Get the length of the string
+console.log(str.length); // Output: 21
+
+// Convert the string to uppercase
+console.log(str.toUpperCase()); // Output: JAVASCRIPT IS AWESOME
+
+// Replace a substring within the string
+console.log(str.replace('awesome', 'amazing')); // Output: JavaScript is amazing
+
+// Split the string into an array of substrings
+console.log(str.split(' ')); // Output: ["JavaScript", "is", "awesome"]
+
+
+
+
+3) Using string properties
+
+let str = 'Hello World';
+
+// Get the length of the string
+console.log(str.length); // Output: 11
+
+
+
+4) String interpolation
+
+let name = 'Alice';
+let age = 25;
+
+console.log(`My name is ${name} and I am ${age} years old.`);
+// Output: My name is Alice and I am 25 years old.
+
+
+5) Unicode and character encoding
+
+let str = '🚀 JavaScript is awesome!';
+
+console.log(str.length); // Output: 23
+console.log(str.charCodeAt(0)); // Output: 55357
+console.log(str.charCodeAt(1)); // Output: 56832
+
+
+6) Regular expressions
+let str = 'JavaScript is awesome';
+
+// Test if the string contains the word "awesome"
+console.log(/awesome/.test(str)); // Output: true
+
+// Replace all occurrences of "awesome" with "amazing"
+console.log(str.replace(/awesome/g, 'amazing')); // Output: JavaScript is amazing
+
+
+7) String mmutability
+
+let str = 'Hello World';
+
+// This will not modify the original string
+str.toUpperCase();
+console.log(str); // Output: Hello World
+
+// This will create a new string with the modified content
+let str2 = str.toUpperCase();
+console.log(str2); // Output: HELLO WORLD
+
+
+8) String comparison
+
+console.log('a' < 'b'); // Output: true
+console.log('z' < 'B'); // Output: false (based on Unicode code points)
+
+
+9) Check if string contains a substring
+
+9.1) 
+var mainString = "hello",
+  subString = "hell";
+mainString.includes(subString);
+
+9.2)
+var mainString = "hello",
+  subString = "hell";
+mainString.indexOf(subString) !== -1;
+
+
+
+10) Check if string starts with another
+
+"Good morning".startsWith("Good"); // true
+"Good morning".startsWith("morning"); // false
+
+
+11) trim whitespaces in string
+
+"  Hello World   ".trim(); //Hello World
+
+
+Use below polyfill if not supported
+
+if (!String.prototype.trim) {
+  (function () {
+    // Make sure we trim BOM and NBSP
+    var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+    String.prototype.trim = function () {
+      return this.replace(rtrim, "");
+    };
+  })();
+}
+
+
+
+12)

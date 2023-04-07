@@ -1,0 +1,259 @@
+Objective: How websites function even if user is offline
+
+what ? JS file that runs in background  //does task even if website is not open in browser
+
+what do they do? periodic background syncs,push notifications, intercept and handle network request, manage cache of responses
+
+1) check if user's browser --> supports service worker
+	Register the service worker
+
+1.1) 
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(function(registration) {
+      console.log('Service Worker registered with scope:', registration.scope);
+    })
+    .catch(function(error) {
+      console.log('Service Worker registration failed:', error);
+    });
+}
+
+
+
+2) Set up event listeners (for 'fetch' and 'install' events)
+if user makes fetch() --> service worker checks if requested resource is in cache
+	if exists -> return cached version
+	else      -> service worker fetches from network
+
+
+
+2.1) 
+
+// Set up an event listener for incoming fetch requests
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          // Found a match in the cache, so return it
+          return response;
+        } else {
+          // No match found in the cache, so fetch from the network
+          return fetch(event.request);
+        }
+      })
+  );
+});
+
+//Service worker installed
+// Cache some resources when the Service Worker is installed
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('my-cache')
+      .then(function(cache) {
+        return cache.addAll([
+          '/',
+          '/index.html',	//Service worker caches some resources to retrieve later
+          '/styles.css',
+          '/script.js'
+        ]);
+      })
+  );
+});
+
+
+
+Conclusion: How websites can still function even if user is offline
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+More code examples:
+
+1) Caching static assets
+// Open a cache and add static assets to it
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open('my-cache')
+      .then(function(cache) {
+        return cache.addAll([
+          '/',
+          '/index.html',
+          '/styles.css',
+          '/script.js'
+        ]);
+      })
+  );
+});
+
+// Serve assets from cache if available, or fetch from network and add to cache
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        return response || fetch(event.request).then(function(response) {
+          return caches.open('my-cache').then(function(cache) {
+            cache.put(event.request, response.clone());
+            return response;
+          });
+        });
+      })
+  );
+});
+
+
+
+
+2) Background synchronization: 
+listen background sync events, schedule them using sync
+//data synchronize in background
+Ex taking notes on smartphone during flight --> connect to internet after landing --> notes sync automatically
+
+// Listen for background sync events
+self.addEventListener('sync', function(event) {
+  if (event.tag === 'my-background-sync') {
+    event.waitUntil(
+      // Make API request and handle response
+      fetch('https://my-api.com/data')
+        .then(function(response) {
+          // Do something with response data
+        })
+        .catch(function(error) {
+          // Handle error
+        })
+    );
+  }
+});
+
+// Schedule a background sync event
+navigator.serviceWorker.ready.then(function(registration) {
+  registration.sync.register('my-background-sync');
+});
+
+
+3) Push notifications
+listen for push notifications -> display them using showNotification()
+//basically when a push notification is received --> service worker can display to user even if website is not open
+
+// Listen for push notification events
+self.addEventListener('push', function(event) {
+  const title = 'My App';
+  const options = {
+    body: event.data.text()
+  };
+  event.waitUntil(
+    self.registration.showNotification(title, options)
+  );
+});
+
+
+4) Intercepting network requests:
+
+// Intercept network requests and respond from cache if available
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        return response || fetch(event.request);
+      })
+  );
+});
+
+
+5) Handling errors:
+	handle fetch() errors
+	if requested resource 404 --> Service worker returns custom 404 page from cache
+					else--> can return 404 page from cache
+
+// Handle fetch errors and provide fallback content
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    fetch(event.request)
+      .then(function(response) {
+        if (response.status === 404) {
+          return caches.match('/404.html');
+        } else {
+          return response;
+        }
+      })
+      .catch(function() {
+        return caches.match('/offline.html');
+      })
+  );
+});
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+1) What problem with Service worker?
+
+	if not used 	--> terminates --> problems
+	when next needed  --> restarted  --> problems (if relying on global state of worker's 	 								onfetch and onmessage)
+	
+		
+Solution: IndexedDB API
+How this api helps? store large amount of structured --> query that data using indexes
+	++asynchronous  ---> we use it within Service workers and solve the common prolbem
+
+What this API does? persist data between each Service worker restarts
+
+1.1)
+  1.1.1) Open connection to IndexedDB database
+  1.1.2) create an object store with index
+  1.1.3) Add some data to DB (how?)
+  1.1.4) retrieve data using index lookup)
+ 		persist data across service worker restarts (can reuse data within onfetch and onmessage)
+		//Advice: IndexedDB can be complex-> use library Dexie or IDB 	//Simplifies the API
+	
+
+// Open a connection to an IndexedDB database
+const request = indexedDB.open('my-db', 1);
+
+// Create object store and indexes when database is first created
+request.onupgradeneeded = function(event) {
+  const db = event.target.result;
+  const objectStore = db.createObjectStore('my-store', { keyPath: 'id' });
+  objectStore.createIndex('name', 'name', { unique: false });
+};
+
+// Handle database errors
+request.onerror = function(event) {
+  console.log('Database error:', event.target.error);
+};
+
+// Handle successful database connection
+request.onsuccess = function(event) {
+  const db = event.target.result;
+  
+  // Add data to database
+  const transaction = db.transaction('my-store', 'readwrite');
+  const objectStore = transaction.objectStore('my-store');
+  objectStore.add({ id: 1, name: 'John' });
+  objectStore.add({ id: 2, name: 'Jane' });
+  transaction.oncomplete = function() {
+    console.log('Data added to database');
+  };
+  
+  // Retrieve data from database
+  const getTransaction = db.transaction('my-store');
+  const getObjectStore = getTransaction.objectStore('my-store');
+  const index = getObjectStore.index('name');
+  const request = index.get('John');
+  request.onsuccess = function(event) {
+    const data = event.target.result;
+    console.log('Retrieved data:', data);
+  };
+};
+
+
+
+
+
+
+
+
+2) How Service workers manipulate DOM?
+	they cant access DOm manually
+		
+
+	2.1) Communicate with pages	
+	//response to message sent by 'postMessage' interface  
+
+	2.2) pages will manipulate DOm

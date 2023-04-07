@@ -1,0 +1,106 @@
+1) Creating objects in JS
+
+
+ 1.1) object constructor
+	var object = new Object();
+
+
+ 1.2) Object.create()
+	var object = Object.create(null);
+
+
+ 1.3) Object literal	//comma separated key,value pairs in curly braces  //easy way to 					//create object
+				//fixed data 
+	var object = {
+     		name: "Sudheer",
+     		age: 34
+	};
+
+
+	let person = {
+	//property	//value
+ 		name: "John",
+  		age: 30,
+  		city: "New York"
+	};
+
+
+Object literal property values can be of any data type, including array, function, and nested object.
+
+
+  1.4) What is this? new object created --> when constructor function is called
+
+	 Create object using Function constructor
+	function Person(name) {
+		this.name = name;
+		this.age = 21;
+	}
+	var object = new Person("Raju")
+	vavr object = new Person("Jignesh")
+	console.log(object);
+	
+	>Person {name: "Jignesh", age: 21}
+
+
+
+  1.5) Function constructor with prototype:
+	 //What is prototype used for? define shared(default) properties and methods
+
+	//How to use?	//both object and object2 will inherit 'name' from 							'Person.prototype' object
+
+		 function Person() {}	//empty constructor function
+		 Person.prototype.name = "Sudheer";	//set default  property 'name' to 'Sudheer'
+		 var object = new Person();
+		 var object2 = new Person();
+		 console.log(object);		//Person {name: "Sudheer"}
+		 console.log(object2);		//Person {name: "Sudheer"}
+
+
+
+  1.6)
+	// Create a new instance using function prototype.
+var newInstance = Object.create(func.prototype)
+
+// Call the function
+var result = func.call(newInstance, x, y, z),
+
+// If the result is a non-null object then use it otherwise just use the new instance.
+console.log(result && typeof result === 'object' ? result : newInstance);
+
+
+  1.7) Create object using class (Es6)
+
+    class Person {
+	constructor(name) {
+	  this.name = name;	
+	}
+    }
+    var object =  new Person("Sudheer");
+
+
+  1.8) Create object using singleton pattern
+
+	a) create class
+	  a.1) instance //type MySignletonClass
+ 	  a.2) getInstance()	//to create an object of class
+	  a.3) 
+	public class MySingletonClass {
+   private static MySingletonClass instance = null;
+   private MySingletonClass() {
+      // Private constructor to prevent instantiation of this class from outside
+   }
+   public static MySingletonClass getInstance() {
+      if(instance == null) {
+         instance = new MySingletonClass();
+      }
+      return instance;
+   }
+}
+
+	//call getInstance to create an instance of class
+   b) MySingletonClass mySingleton = MySingletonClass.getInstance();
+
+   c) console.log(mySingleton);
+	
+	>MySingletonClass {}
+	//instance of class created

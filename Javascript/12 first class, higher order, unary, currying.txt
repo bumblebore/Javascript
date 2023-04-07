@@ -1,0 +1,87 @@
+1) What is first class function?  functions treated like any other variable
+	what use of this?
+
+			1.1) can pass function as argument:
+				ex function1(function2)
+			1.2) can return a function
+				ex function1{
+					return function2
+				   }
+			1.3) can assign to variable
+				ex const var = function2
+			1.4) ex pass a function in addEventListener()
+				const handler = () => console.log("This is a click handler function")
+				document.addEventListener("click", handler);
+
+
+
+2) First order functions:
+	What are first order functions?
+		dont accept other function as argument
+		 const firstOrder = () => console.log("I am a first order function");
+
+		this function doesnt return function 
+		this function does not accept another function
+
+
+3) Higher order function
+		accepts input arg as function		//higherOrder accepts ReturnFirstOrderFunc
+		returns function				//returns ReturnFirstOrderFunc
+
+const firstOrderFunc = () =>
+	console.log("Hello , I am a First order function");
+const higherOrder = (ReturnFirstOrderFunc) => ReturnFirstOrderFunc();
+higherOrder(firstOrderFunc)		 
+
+
+4) Unary Function
+
+		accepts 1 argument	//accepts a
+
+Ex
+const unaryFunction = (a) => console.log(a + 10); // Add 10 to the given argument and display the value
+		
+
+5) Currying function
+		a way to define function, so it can be used with different arguments	
+	  	input: function with multiple arguments
+		//specify this way: const curryUnaryFunction = (a) => (b) => (c) => a + b + c;
+		output: based on called with what arguments
+			curryUnaryFunction(1);	  // returns a function: b => c =>  1 + b + c
+			curryUnaryFunction(1)(2); // returns a function: c => 3 + c			
+	
+
+const multiArgFunction = (a, b, c) => a + b + c;
+console.log(multiArgFunction(1, 2, 3)); // 6
+
+const curryUnaryFunction = (a) => (b) => (c) => a + b + c;
+console.log(curryUnaryFunction(1)); 
+		// output: function: b => c =>  1 + b + c
+		//string representation of function		//function code in string format
+
+6) Pure function:
+	produce same output, given same input
+	ex
+	function sum(a, b) {
+	  return a + b;			//return same output
+	}
+
+	no side effects (for exmodifying any data structure etc)
+
+
+Ex
+//Impure  //modifies the array
+let numberArray = [];
+const impureAddNumber = (number) => numberArray.push(number);
+
+
+//Pure  //concats 2 arrays
+const pureAddNumber = (number) => (argNumberArray) =>
+  argNumberArray.concat([number]);
+
+
+
+//Why Pure functions important? 
+				   simplify unit testing
+				   hard to break application -> avoid tight coupling -> no side 					   effects
+

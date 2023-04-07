@@ -1,0 +1,16 @@
+Objective: How to check if HTML document has finished loading in browser
+
+
+1) document.load  (After HTML parsed, DOM constrcuted , resources loaded)
+
+document.addEventListener("load", function() {
+  // Code to be executed after the entire document and its resources have loaded
+});
+
+
+2) DOMContentLoaded (After HTML parsed, DOM constructed)
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Code to be executed after the DOM is fully constructed
+});
+		//use to perform actions/execute code not depending on external resources

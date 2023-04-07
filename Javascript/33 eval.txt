@@ -1,0 +1,3 @@
+evaluate string javascript code
+
+console.log(eval("1 + 2")); //  3

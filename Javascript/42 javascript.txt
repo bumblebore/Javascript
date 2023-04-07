@@ -1,0 +1,22 @@
+Compiled :Code ----> machine code	//compiler	//before execution	
+	//processor can directly execute machine code
+	//fast, efficient
+Ex C,C++,Java,Go,Rust
+
+	C/C++: OS,device drivers,high performance computing
+	Java: enterprise software,Android App dev, web applications
+
+
+Interpreted Languages:	//Interpreter reads + runs
+	Interpreter reads and executes code at runtime
+	//slow
+Ex Javascipt,Python,Ruby,PHP
+
+	Javascript: client-side webdevelopment,server side webdev,mobile app dev
+	Python    : data analysis,ML
+	Ruby      : webDev with Ruby-on-rails frameworks
+	Php	    : server side webdev, CMS
+	bash	    : shell scripting, system admin
+
+
+	Modern browser: just when code about to run : Javascript --> bytecode

@@ -1,0 +1,62 @@
+browser receives automatic updates from server (How? HTTP connection
+								does not use polling
+								one way (server --> client only)
+						///FB twitter updates,stock price updates, news feeds
+0) Check browser support for SSE?
+if (typeof EventSource !== "undefined") {
+  // Server-sent events supported. Let's have some code here!
+} else {
+  // No server-sent events supported
+}
+
+
+
+1) What events available for server sent events?
+	onopen
+	onmessage
+	onerror
+
+
+2) Objective: implement server sent events in Javscript (Node.js, Express) using onmessage event
+
+const express = require('express');
+const app = express();
+
+// Set up a route to handle sse request at /sse endpoint
+	This route will only handle SSE requests
+app.get('/sse', (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');		//necessary headers
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+  // Send an initial SSE message
+  res.write(`data: Initial message\n\n`);
+
+  // Set up an interval to send SSE messages every 5 seconds
+  const intervalId = setInterval(() => {
+    res.write(`data: Server-sent event message\n\n`);
+  }, 5000);
+
+  // When the client closes the connection, stop sending SSE messages
+  req.on('close', () => {
+    clearInterval(intervalId);
+  });
+});
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
+
+
+
+
+
+Client side:
+const eventSource = new EventSource('/sse');		//EventSource object with sse 										//endpoint at client side
+
+// Handle SSE messages received from the server
+eventSource.onmessage = (event) => {			//onmessage event handler (logs sse 									//message to console)
+									//whenever we receive message -> this 									//event handler is triggered
+  console.log(`Received SSE message: ${event.data}`);
+};

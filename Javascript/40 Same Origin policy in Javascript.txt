@@ -1,0 +1,23 @@
+Helps prevent cross site scripting (XSS) attacks
+
+1) Cross Origin Sharing
+	Add Headers to response sent by server
+	header("Access-Control-Allow-Origin: *"); // allows requests from any origin
+
+	//Allow web page  ---> to make cross-origin requests
+	//using special HTTP Headers
+	
+2) JSONP (JSON with padding)
+	
+	//Define a callback function 	//handles JSON data
+	//include header in Javascript file URL
+
+function handleJSONP(data) {
+  console.log(data);
+}
+
+const script = document.createElement("script");
+script.src = "https://example.com/data.json?callback=handleJSONP";
+document.body.appendChild(script);
+
+	

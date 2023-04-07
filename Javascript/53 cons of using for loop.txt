@@ -1,0 +1,5 @@
+imperative vs functional
+
+imperative = series of steps needed to take place to achieve objective
+
+functional = problem = set of functions() to execute

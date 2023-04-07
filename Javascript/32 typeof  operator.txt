@@ -1,0 +1,18 @@
+typeof "John Abraham"; // Returns "string"
+typeof (1 + 2); // Returns "number"
+typeof [1, 2, 3] // Returns "object" because all arrays are also objects
+
+
+Note:
+2) Undefined
+var user; // Value is undefined, type is undefined
+console.log(typeof user); //undefined
+
+
+
+3) Null
+ Empty the variable by setting to null
+
+var user = null;
+console.log(typeof user); //object
+

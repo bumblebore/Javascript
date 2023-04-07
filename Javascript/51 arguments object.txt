@@ -1,0 +1,23 @@
+1) What is arguments object?
+	contains all arguments passed to a function
+	
+
+
+1.1) Give ex of use
+	below arguments object contains all arguments passed to function sum()
+
+function sum() {
+  	var total = 0;
+	for(var i = 0; len = arguments.length; i< len; ++i){
+		total += arguments[i];
+	}	
+	return total;
+}
+
+sum(1,2,3);
+
+
+
+2) how to convert arguments object to array? (why convert? cannot apply array methods on argument object)
+
+var argsArray = Array.prototype.slice.call(arguments);

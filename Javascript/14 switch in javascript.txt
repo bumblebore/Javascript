@@ -1,0 +1,83 @@
+1) How to declare switch statement in JS
+
+let day = 3;
+let dayName;
+
+switch (day) {
+  case 1:
+    dayName = "Sunday";
+    break;
+  case 2:
+    dayName = "Monday";
+    break;
+  case 3:
+    dayName = "Tuesday";
+    break;
+  case 4:
+    dayName = "Wednesday";
+    break;
+  case 5:
+    dayName = "Thursday";
+    break;
+  case 6:
+    dayName = "Friday";
+    break;
+  case 7:
+    dayName = "Saturday";
+    break;
+  default:
+    dayName = "Unknown day";
+    break;
+}
+
+console.log("Today is " + dayName);
+
+
+
+2) How to redeclare a variable in switch
+
+2.1) below code causes error
+
+function testSwitchCase(value) {
+  switch(value) {
+    case 1:
+      let message = "One";
+      console.log(message);
+      break;
+    case 2:
+      let message = "Two"; 		// This line causes an error
+      console.log(message);
+      break;
+    default:
+      let message = "Other"; 		// This line also causes an error
+      console.log(message);
+      break;
+  }
+}
+
+testSwitchCase(1);
+
+
+
+2.2) Solution: declare message outside switch statement (can be accessed by all)
+
+function testSwitchCase(value) {
+  let message; // Declare message outside of switch statement
+  
+  switch(value) {
+    case 1:
+      message = "One"; // Assign value to message without redeclaring it
+      console.log(message);
+      break;
+    case 2:
+      message = "Two"; // Assign value to message without redeclaring it
+      console.log(message);
+      break;
+    default:
+      message = "Other"; // Assign value to message without redeclaring it
+      console.log(message);
+      break;
+  }
+}
+
+testSwitchCase(1);

@@ -1,0 +1,12 @@
+let keyword : scope specific   //Introduced in ES6
+			use in scope only ({})
+
+var keyword : globally define
+			use in function scope
+
+let counter = 30;		//scope1
+if (counter === 30) {
+  let counter = 31;		//scope2
+  console.log(counter); // 31
+}
+console.log(counter); // 30 (because the variable in if block won't exist here)

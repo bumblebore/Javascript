@@ -1,0 +1,41 @@
+Summary: What call() does? 
+	call function with this value
+	provide arguments one by one(comma separated list)
+
+a) Why use .call('object used as this value', arguments)?
+
+1) If given an object with 1property and 1 method
+
+const person = {
+  name: "John",
+  greeting: function() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+};
+
+
+//can call greeting on person object
+
+person.greeting()		//Hello my name is John
+
+
+// create another object (has same property,without same method)
+const newPerson = {
+  name: "Alice"
+}
+
+
+person.greeting.call(newPerson);	//Hello my name is Alice
+
+
+b) How call() works?
+
+function greet(greeting) {
+  console.log(`${greeting}, ${this.name}.`);
+}
+
+const person = {
+  name: "John"
+};
+
+greet.call(person, "Hello"); // Output: "Hello, John."

@@ -1,0 +1,15 @@
+1)
+let arrayIntegers = [1,2,3,4,5];
+arrayIntegers.slice(0,2);
+
+>Output:
+
+[1,2]
+
+2)
+let arrayIntegers = [1,2,3,4,5];
+arrayIntegers.slice(0);
+
+>Output:
+
+[1,2,3,4,5]

@@ -1,0 +1,118 @@
+Part after '?' contains key value pairs
+
+https://example.com/search?q=javascript&page=2
+
+q = javascript	
+page=2
+
+
+const urlParams = new URLSearchParams(window.location.search);
+const clientCode = urlParams.get("clientCode");
+
+0) Prerequisite:
+0.1) Objects in JS	//key value pairs
+const person = {		//each key unique
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+
+0.2)
+Check if a key exists in object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+if("name" in person) {
+	console.log("perosn object has name property")
+}
+
+
+0.3) Add entries in object (dot)
+
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+person.job = "Software Engineer";
+person.salary = 80000;
+
+0.4) how to access key value pairs
+
+var object = {
+  k1: "value1",
+  k2: "value2",
+  k3: "value3",
+};
+for (var key in object) {
+  if (object.hasOwnProperty(key)) {
+    console.log(key + " -> " + object[key]); // k1 -> value1 ...
+  }
+}
+
+
+0.4) Loop through JS object
+var object = {
+  k1: "value1",
+  k2: "value2",
+  k3: "value3",
+};
+
+for (var key in object) {
+  if (object.hasOwnProperty(key)) {
+    console.log(key + " -> " + object[key]); // k1 -> value1 ...
+  }
+}
+
+
+0.5) .entries()
+const person = { name: "John", age: 30, city: "New York" };
+const entries = Object.entries(person);
+
+console.log(entries);
+// Output: [["name", "John"], ["age", 30], ["city", "New York"]]
+
+
+
+0.5) Check if object is empty
+
+var obj = {
+  k1: "value1",
+  k2: "value2",
+  k3: "value3",
+};
+
+Object.entries(obj).length === 0 && obj.constructor === Object;
+
+
+
+1) how to extract query string from current url?
+
+
+const queryString = window.location.search;
+const paramsString = queryString.substring(1); 		//"q=javascript&page=2"
+
+
+const queryString = new URLSearchParams(window.location.search);
+
+const paramsArray = paramsString.split('&'); // ["q=javascript", "page=2"]
+
+// Initialize an object to store the key-value pairs
+const params = {};
+
+paramsArray.forEach(param => {
+  const [key, value] = param.split('=');
+  params[key] = value;
+});
+
+console.log(params.q); // "javascript"
+console.log(params.page); // "2"
+
+
+
+

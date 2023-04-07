@@ -1,0 +1,90 @@
+1) What is callback function.
+
+function passed to another function
+
+function callbackFunction(name) {
+  console.log("Hello " + name);
+}
+
+function outerFunction(callback) {			//callback function 'callback' passed as 									//arguments
+  let name = prompt("Please enter your name.");
+  callback(name);						//call callback function 'callback'
+}
+
+outerFunction(callbackFunction);
+
+>Abhilash		//input
+Hello Abhilash
+
+
+2) How Javscript is event driven language?
+//Add a click event to button
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', function() {
+  console.log('Button clicked!');
+});
+
+
+//What happens internally?
+	add event listener to button element function() passed  //as 2nd arg --> to addEventListener
+	event listener listens for click event
+	when button clicked --> function() executes
+	function logs Button clicked! to console
+
+//Why above is event driven? code is structured around events
+  Code is not linear , it waits for events to occur before executing certain code
+
+ 	Conclusion: javascript executes code while listening for events
+
+  2.1) Objective: below code: Javascript does not wait for firstFunction() response and executes secondFunction().
+
+function firstFunction() {
+  // Simulate a code delay
+  setTimeout(function () {			//async operation	
+    console.log("First function called"); //callback, delay
+  }, 1000);
+}
+function secondFunction() {
+  console.log("Second function called");
+}
+firstFunction();
+secondFunction();
+
+Output;
+// Second function called
+// First function called
+
+
+
+     Conclusion: normal function execute normally --> synchronously --> blocks further code
+		   callback function execute 		  --> asynchronously --> can wait
+
+
+  2.2) Callback hell : difficult to read when multiple nested callbacks to asynchronous logic
+
+async1(function(){
+    async2(function(){
+        async3(function(){
+            async4(function(){
+                ....
+            });
+        });
+    });
+});
+
+
+
+3) What solution to callback hell? 
+3.1) Promises (can chain asynch operations, can handle errors easily)
+
+3.2) use Async/Await : Write asynchronous code in synchronous style  //uses promises underhood
+
+3.3) avoid nested callbacks --> break code into smaller functions
+
+3.4) async library
+     Callback libraries : Async.js
+
+3.5) use Generators --> write async code synchronously
+

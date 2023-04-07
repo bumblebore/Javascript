@@ -1,0 +1,33 @@
+1) What is prototype chain?
+
+ 1.1) How to create child object from parent object?
+	
+	var child = Object.create(parent) 	//pass parent object as prototype
+
+
+1.2) 
+
+	Create parent object
+		name,age property, sayHello() method
+
+var parent = {
+	name: "John",
+	age: 50,
+	sayHello: function() {
+	  console.log("Hello my name is" +this.name + "and I am" + this.age + "years old");
+	}
+};
+
+	Create a child object // pass parent object
+
+var child = Object.create(parent);		//parent is prototype for child
+child.name = "Alice";
+child.age = 20;
+
+
+child.sayHello();		//automatically sayHello() for child created
+				//child inherited properties and methods from parent
+
+				//order in which JS checks?
+				child object --> parent pbject (child.prototype) -->
+				Object.prototype -->Type error

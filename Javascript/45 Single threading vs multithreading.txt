@@ -1,0 +1,57 @@
+1) Single thread: Javascript
+	one function at a time
+	//can see function in callstack
+	//if 1 function running, another function cant be running at that time
+
+	//Solution : asynchronous programming in JS
+
+2) Multithreaded: Java,C++
+ObjectiveL : extend thread class and run multiple 
+
+//multiple threads running together  in same program
+	   MyThread thread1 = new MyThread("Thread 1");
+         MyThread thread2 = new MyThread("Thread 2");
+
+
+public class MyThread extends Thread {
+    private String name;
+
+    public MyThread(String name) {
+        this.name = name;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(name + ": " + i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread thread1 = new MyThread("Thread 1");
+        MyThread thread2 = new MyThread("Thread 2");
+
+        thread1.start();
+        thread2.start();
+    }
+}
+
+
+>Output:
+Thread 1: 1
+Thread 2: 1
+Thread 1: 2
+Thread 2: 2
+Thread 1: 3
+Thread 2: 3
+Thread 1: 4
+Thread 2: 4
+Thread 1: 5
+Thread 2: 5
+

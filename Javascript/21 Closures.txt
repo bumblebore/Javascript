@@ -1,0 +1,36 @@
+1) What is closure?
+	inner function that has access to outer function's variables	
+	
+
+Ex inner function greetingInfo has access to variables of outer function ( Welcome)	
+//Below code shows how innerFunction() accesses outerVar (which is in outerFunction() scope)
+
+function outerFunction() {
+  const outerVar = 'I am outside!';
+
+  function innerFunction() {
+    console.log(outerVar);
+  }
+
+  return innerFunction;
+}
+
+const innerFunc = outerFunction();		//returned innerFunction assigned to  innerFunc
+innerFunc(); 					// logs 'I am outside!'
+
+
+Order:
+1) outerFunction() called
+1.1) outerVar declared + init with I am outside!
+1.2) innerFunction() declared
+1.3) innerFunction() returned from outerFunction --> 
+2) returned innerFunction() reference stored in variable innerFunc
+3) outerFunction() finished
+
+4) innerFunc() --> innerFunction() called
+	logs value of outerVar (I am outside)
+	//Magic outerFunction had already finished still we used its variable
+
+
+
+When closure happen --> Whenever function defined inside another function //Automatically

@@ -1,0 +1,27 @@
+var msg = "Hello"	//local variable
+
+msg = "Hello"	//global variable
+
+
+1) What issue with 
+	1.1) difficult to debug and test code relying on global variables
+	1.2) accidentally local --> global just by removing var
+
+Ex
+var x = 10; // Global variable
+
+function foo() {
+  y = 20; // Accidentally omitted var, let, or const keyword
+
+  console.log(x); // Access global variable x
+  console.log(y); // Access global variable y (accidentally created)
+}
+
+foo();
+
+console.log(y); // Access global variable y outside the function
+
+// Output:
+// 10
+// 20
+// 20

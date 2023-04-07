@@ -1,0 +1,29 @@
+1) arrow function(javascript) = lambda function(python)
+
+2) ex define a sum() arrow/lambda function
+
+++++++++++++++++++++++++++++++++++++++++++++
+//Javscript:
+name = (x,y) =>  x operation y
+name(x,y);					//call
+--------------------------------------------
+const sum = (a,b) => a + b;
+console.log(sum(2,3));			//
+
+>5
+
+const sum = (a,b,c) => a + b + c;
+console.log(sum(2,3,4));
+++++++++++++++++++++++++++++++++++++++++++++
+//Python
+
+sum  = lambda a, b: a + b
+print(sum(2,3))
+>5
+--------------------------------------------
+
+sum = lambda a,b,c: a+b+c
+
+print(sum(2,3,4))
+++++++++++++++++++++++++++++++++++++++++++++
+

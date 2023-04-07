@@ -1,0 +1,78 @@
+prefer map >> object
+
+1) Map
+
+const person = {
+  name: 'John',				//key for map can be anything: 										//function,objects,primitive
+  age: 30,
+  gender: 'male'
+};
+
+const MyMap = new Map();		//how to create map? new Map() constructor
+
+myMap.set('name', 'John');		//add key-value pairs using set()
+myMap.set('age', 30)'
+myMap.set('gender', 'male');
+console.log(MyMap);
+
+>Output
+Map(3) {			//Map object  //3 key value pairs
+  "name" => "John",		key => value
+  "age" => 30,
+  "gender" => "male"
+}
+
+
+1.1) iteratating over map
+method1: for - of
+ 	for(const [key,value] of myMap) {
+		console.log('${key}: ${value}');
+	}
+
+method2: forEach()
+	myMap.forEach((value, key) => {
+	  console.log(`${key}: ${value}`);
+	});
+
+method3: entries()  --> returns an iterator object --> contains key-value in an array)
+loop through that array using for..of
+
+const mapIterator = myMap.entries();
+
+	for(const [key,value] of mapIterator) {
+	  console.log('${key}: ${value}');
+	}
+>Output:	
+name: John
+age: 30
+gender: male
+
+
+1.2) get size of map
+	
+const myMap = new Map();
+myMap.set("a",1);
+myMap.set("b",2);
+myMap.set("c",3);
+
+console.log(myMap.size);		//>3
+
+1.3) how are keys ordered in a map
+
+const myMap = new Map();
+myMap.set("a", 1);
+myMap.set("b", 2);
+myMap.set("c", 3);
+
+// Iterate over the Map and log the keys
+for (const key of myMap.keys()) {
+  console.log(key);
+}
+
+// Output:
+// "a"
+// "b"
+// "c"
+
+
+1.4) when is map useful? frequent addition and removal of key pairs

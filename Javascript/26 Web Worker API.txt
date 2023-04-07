@@ -1,0 +1,48 @@
+What ? API that allows to run scripts in background
+
+
+0) Check if supported
+if (typeof Worker !== "undefined") {
+  // code for Web worker support.
+} else {
+  // Sorry! No Web Worker support..
+}
+
+
+1) Example
+
+
+ 1.1) write script to increment count		//This is webworker file
+
+let i = 0;
+
+function timedCount() {
+  i = i + 1;
+  postMessage(i);				//use postMessage() to post back to HTML
+  setTimeout("timedCount()", 500);
+}
+
+timedCount();
+
+
+ 1.2) Check for browser support,   Create Web Worker Object
+
+web_worker_example.js		
+
+if (typeof w == "undefined") {
+  w = new Worker("counter.js");
+}
+
+
+ 1.3) Receive messages from web worker
+w.onmessage = function (event) {
+  document.getElementById("message").innerHTML = event.data;
+};	
+
+ 1.4) Terminate web worker
+w.terminate();
+
+ 1.5) Reuse web worker  //can reuse the code once w is set
+w = undefined;
+
+ 

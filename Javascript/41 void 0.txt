@@ -1,0 +1,11 @@
+1) How to refresh a page in Javascript?
+ 	location.reload()		//call this without arguments //will reload using cached 						//resources	---> problem --> might be outdated content
+
+	location.reload(true)	//forces page to reload	
+
+
+2) How to prevent page from redirecting when link clicked?
+
+Void(0)
+
+<a href="javascript:void(0)" onclick="refreshPage()">Refresh</a>
